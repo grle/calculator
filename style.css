@@ -44,10 +44,21 @@ a:hover {
 }
 
 .window {
-  border-radius: 10px;
-  height: 100px;
-  margin: 15px 15px 0 15px;
   background-color: var(--white);
+  border-radius: 10px;
+  height: 87px;
+  margin: 15px 15px 0 15px;
+  text-align: right;
+}
+
+#eqConcat {
+  font-size: 13px;
+  margin: 10px;
+}
+
+#eqEnter {
+  font-size: 25px;
+  margin: 10px;
 }
 
 .btn-large {
