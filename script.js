@@ -125,7 +125,27 @@ function btnDiv() {
 
 //buttons
 function btnEqual() {
+  //eqConcat
+  let result = eqString.concat(numString);
+  document.getElementById("eqConcat").innerHTML = result.concat(" = ");
 
+  //eqEnter
+  numArray.push(numString);
+  let hold1 = Number(numArray[0]);
+  let hold2 = Number(numArray[1]);
+  let concatHold = op[0];
+
+  let total = operate(hold1, hold2, concatHold);
+  if (total == null) {
+    document.getElementById("eqEnter").innerHTML = "UNDEFINED";
+    //add other things here to clean up the visuals
+  }
+  op.shift();
+  let numTotal = total.toString();
+  numArray = [];
+  numArray.push(numTotal);
+  document.getElementById("eqEnter").innerHTML = numTotal;
+  numString = "";
 }
 
 function btnClear() {
@@ -210,9 +230,6 @@ function btnDot() {
 
 //NUMBERS
 function zero() {
-  // if (numString == "") {
-  //   return;
-  // }
   if (numString.length > 12) {
     return;
   }
