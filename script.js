@@ -1,6 +1,5 @@
 //WINDOW
 function operate(num1, num2, op) {
-
   switch(op) {
     case "add":
       return num1 + num2;
@@ -21,6 +20,9 @@ function operate(num1, num2, op) {
       break;
   }
 }
+
+
+//...9999 x 9999999999999 =
 
 function addOn(addString) {
 
@@ -43,7 +45,7 @@ function addOn(addString) {
   }
 
   let length = numArray.length;
-  console.log(numArray);
+
   if (length == 1) {
     eqString = numString.concat(concatOp);
     document.getElementById("eqConcat").innerHTML = eqString;
@@ -84,14 +86,10 @@ function btnEqual() {
   let hold1 = Number(numArray[0]);
   let hold2 = Number(numArray[1]);
   let concatHold = op[0];
-  console.log(hold1);
-  console.log(hold2);
-  console.log(concatHold);
-
   let total = operate(hold1, hold2, concatHold);
   if (total == null) {
     document.getElementById("eqEnter").innerHTML = "UNDEFINED";
-    //add other things here to clean up the visuals
+    //figure out what to do here
   }
   let numTotal = total.toString();
   numArray = [];
@@ -130,8 +128,6 @@ function btnAdd() {
   boolOp = true;
   op.push("add");
   numArray.push(numString);
-
-  console.log(numString);
   addOn("add");
 }
 
