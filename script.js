@@ -42,9 +42,8 @@ function addOn(addString) {
       break;
   }
 
-  //figure this part out
   let length = numArray.length;
-
+  console.log(numArray);
   if (length == 1) {
     eqString = numString.concat(concatOp);
     document.getElementById("eqConcat").innerHTML = eqString;
@@ -71,60 +70,11 @@ function addOn(addString) {
   }
 }
 
-//ARITHMETICS
-let op = [];
-let numArray = [];
-let boolDot = false;
-let numString = "";
-let eqString = "";
-
-//operators
-function btnAdd() {
-  if (numString == "") {
-    return;
-  }
-  deleteDot();
-  boolDot = false;
-  op.push("add");
-  numArray.push(numString);
-  addOn("add");
-}
-
-function btnSubt() {
-  if (numString == "") {
-    return;
-  }
-  deleteDot();
-  boolDot = false;
-  op.push("subt");
-  numArray.push(numString);
-  addOn("subt");
-}
-
-function btnMult() {
-  if (numString == "") {
-    return;
-  }
-  deleteDot();
-  boolDot = false;
-  op.push("mult");
-  numArray.push(numString);
-  addOn("mult");
-}
-
-function btnDiv() {
-  if (numString == "") {
-    return;
-  }
-  deleteDot();
-  boolDot = false;
-  op.push("div");
-  numArray.push(numString);
-  addOn("div");
-}
-
-//buttons
 function btnEqual() {
+  if (boolOp == true) {
+    return;
+  }
+
   //eqConcat
   let result = eqString.concat(numString);
   document.getElementById("eqConcat").innerHTML = result.concat(" = ");
@@ -134,18 +84,22 @@ function btnEqual() {
   let hold1 = Number(numArray[0]);
   let hold2 = Number(numArray[1]);
   let concatHold = op[0];
+  console.log(hold1);
+  console.log(hold2);
+  console.log(concatHold);
 
   let total = operate(hold1, hold2, concatHold);
   if (total == null) {
     document.getElementById("eqEnter").innerHTML = "UNDEFINED";
     //add other things here to clean up the visuals
   }
-  op.shift();
   let numTotal = total.toString();
   numArray = [];
-  numArray.push(numTotal);
+  // numArray.push(numTotal);
   document.getElementById("eqEnter").innerHTML = numTotal;
-  numString = "";
+  // eqString = numTotal;
+  numString = numTotal;
+  op.shift();
 }
 
 function btnClear() {
@@ -158,6 +112,66 @@ function btnClear() {
   document.getElementById("eqConcat").innerHTML = "&nbsp;";
 }
 
+//ARITHMETICS
+let op = [];
+let numArray = [];
+let boolDot = false;
+let boolOp = false;
+let numString = "";
+let eqString = "";
+
+//operators
+function btnAdd() {
+  if (numString == "") {
+    return;
+  }
+  deleteDot();
+  boolDot = false;
+  boolOp = true;
+  op.push("add");
+  numArray.push(numString);
+
+  console.log(numString);
+  addOn("add");
+}
+
+function btnSubt() {
+  if (numString == "") {
+    return;
+  }
+  deleteDot();
+  boolDot = false;
+  boolOp = true;
+  op.push("subt");
+  numArray.push(numString);
+  addOn("subt");
+}
+
+function btnMult() {
+  if (numString == "") {
+    return;
+  }
+  deleteDot();
+  boolDot = false;
+  boolOp = true;
+  op.push("mult");
+  numArray.push(numString);
+  addOn("mult");
+}
+
+function btnDiv() {
+  if (numString == "") {
+    return;
+  }
+  deleteDot();
+  boolDot = false;
+  boolOp = true;
+  op.push("div");
+  numArray.push(numString);
+  addOn("div");
+}
+
+//buttons
 function btnDelete() {
   if (numString == "") {
     boolDot = false;
@@ -168,7 +182,8 @@ function btnDelete() {
     numString = "";
     document.getElementById("eqEnter").innerHTML = "0";
     return;
-  } else if (numString == "UNDEFINED") {
+  }
+  else if (numString == "UNDEFINED") {
     btnClear();
     return;
   }
@@ -210,9 +225,9 @@ function deleteDot() {
 }
 
 function btnDot() {
-  if (numString == "") {
-    return;
-  }
+  // if (numString == "") {
+  //   return;
+  // }
   if (numString.length > 12) {
     return;
   }
@@ -233,7 +248,7 @@ function zero() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("0");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -243,7 +258,7 @@ function one() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("1");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -253,7 +268,7 @@ function two() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("2");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -263,7 +278,7 @@ function three() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("3");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -273,7 +288,7 @@ function four() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("4");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -283,7 +298,7 @@ function five() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("5");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -293,7 +308,7 @@ function six() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("6");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -303,7 +318,7 @@ function seven() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("7");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -313,7 +328,7 @@ function eight() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("8");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
@@ -323,7 +338,7 @@ function nine() {
   if (numString.length > 12) {
     return;
   }
-
+  boolOp = false;
   let result = numString.concat("9");
   numString = result;
   document.getElementById("eqEnter").innerHTML = result;
