@@ -95,7 +95,7 @@ a:hover {
   padding: 10px;
 }
 
-.num {
+.num, .per, .eq {
   border-radius: 10px;
   background-color: var(--white);
   cursor: pointer;
@@ -104,12 +104,12 @@ a:hover {
   text-align: center;
 }
 
-.num:hover {
+.num:hover, .per:hover, .eq:hover {
   filter: brightness(0.9);
   transition: 0.3s;
 }
 
-.note {
+.op {
   border-radius: 10px;
   background-color: var(--grey);
   cursor: pointer;
@@ -118,7 +118,7 @@ a:hover {
   text-align: center;
 }
 
-.note:hover {
+.op:hover {
   filter: brightness(0.9);
   transition: 0.3s;
 }

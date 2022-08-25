@@ -8,7 +8,7 @@
 
   <!-- add: css & icon -->
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/02d5cf44c4.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/02d5cf44c4.js" crossorigin="anonymous"></script> -->
 
   <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,39 +21,39 @@
   <div class="calc-body">
     <div class="window">
       <p id="eqConcat">&nbsp;</p>
-      <p id="eqEnter">&nbsp;</p>
+      <p id="eqEnter">0</p>
     </div>
     <div class="btn-container">
       <!-- LARGE BUTTONS -->
       <div class="btn-large">
-        <p onclick="btnClear()" class="btn-lg btn clear" type="button">CLEAR</p>
-        <p onclick="btnDelete()" class="btn-lg btn delete" type="button">DELETE</p>
+        <p class="btn-lg btn clear" type="button">CLEAR</p>
+        <p class="btn-lg btn delete" type="button">DELETE</p>
       </div>
 
       <div class="btn-small">
         <!-- first row -->
-        <p onclick="nine()" class="num btn" type="button">9</p>
-        <p onclick="eight()" class="num btn" type="button">8</p>
-        <p onclick="seven()" class="num btn" type="button">7</p>
-        <p onclick="btnDiv()" class="note btn" type="button">÷</p>
+        <p class="num btn" type="button">9</p>
+        <p class="num btn" type="button">8</p>
+        <p class="num btn" type="button">7</p>
+        <p class="op btn" type="button">÷</p>
 
         <!-- second row -->
-        <p onclick="six()" class="num btn" type="button">6</p>
-        <p onclick="five()" class="num btn" type="button">5</p>
-        <p onclick="four()" class="num btn" type="button">4</p>
-        <p onclick="btnMult()" class="note btn" type="button">x</p>
+        <p class="num btn" type="button">6</p>
+        <p class="num btn" type="button">5</p>
+        <p class="num btn" type="button">4</p>
+        <p class="op btn" type="button">x</p>
 
         <!-- third row -->
-        <p onclick="three()" class="num btn" type="button">3</p>
-        <p onclick="two()" class="num btn" type="button">2</p>
-        <p onclick="one()" class="num btn" type="button">1</p>
-        <p onclick="btnSubt()" class="note btn" type="button">-</p>
+        <p class="num btn" type="button">3</p>
+        <p class="num btn" type="button">2</p>
+        <p class="num btn" type="button">1</p>
+        <p class="op btn" type="button">-</p>
 
         <!-- last row -->
-        <p onclick="btnDot()" class="num btn" type="button">.</p>
-        <p onclick="zero()" class="num btn" type="button">0</p>
-        <p onclick="btnEqual()" class="num btn" type="button">=</p>
-        <p onclick="btnAdd()" class="note btn" type="button">+</p>
+        <p class="per btn" type="button">.</p>
+        <p class="num btn" type="button">0</p>
+        <p class="eq btn" type="button">=</p>
+        <p class="op btn" type="button">+</p>
 
       </div>
     </div>
