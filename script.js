@@ -89,20 +89,45 @@ function myOp(str, n2, n1) {
 }
 
 function btnEqual() {
+  if (num2 == "") {
+    concatStr = num1 + " = ";
+    document.getElementById("eqConcat").innerHTML = concatStr;
+    return;
+  }
+
   let n1 = Number(num1);
   let n2 = Number(num2);
   let result = myOp(op, n2, n1);
 
-  //limit digits concatStr "...9999 x 9999999999999 = "
+  //limit digits eqConcat at 26 char
   concatStr = `${n2} ${op} ${n1} = `;
-  document.getElementById("eqEnter").innerHTML = result;
+  let strLen = concatStr.length;
+  if (strLen > 26) {
+    let hold = strLen - 23;
+    let hold2 = concatStr.substring(hold, strLen);
+    concatStr = "..." + hold2;
+  }
+
+  num1 = result.toString();
+  document.getElementById("eqEnter").innerHTML = num1;
   document.getElementById("eqConcat").innerHTML = concatStr;
+  //limit digit eqEnter at 13 char
+  if (num1.length > 13) {
+    if (result > 9999999999999) {
+      num1 = "";
+      document.getElementById("eqEnter").innerHTML = "TOO LARGE";
+    }
+    else {
+      //might want to debug decimal that gets too long
+      document.getElementById("eqEnter").innerHTML = num1.substring(0, 13);
+    }
+  }
 
   //CLEAR
-  num2 = "";
-  num1 = "";
-  boolDot = false;
   concatStr = "";
+  op = "";
+  num2 = "";
+  boolDot = false;
 }
 
 function btnDot() {
@@ -118,8 +143,9 @@ function btnDot() {
 function btnClear() {
   num1 = "";
   num2 = "";
-  boolDot = false;
   concatStr = "";
+  op = "";
+  boolDot = false;
   document.getElementById("eqConcat").innerHTML = "&nbsp;";
   document.getElementById("eqEnter").innerHTML = 0;
 }
